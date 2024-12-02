@@ -3,10 +3,11 @@ import React, { ReactNode } from "react";
 
 const MaxWithWrapper: React.FC<{
   customClass?: string;
+  addClass?: string;
   children: ReactNode;
-}> = ({ customClass, children }) => {
+}> = ({ customClass, addClass, children }) => {
   return (
-    <div className={cn("w-full max-w-screen-xl px-4 py-2", customClass)}>
+    <div className={cn(`w-full px-4 py-2 ${addClass}`, customClass)}>
       {children}
     </div>
   );

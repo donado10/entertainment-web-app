@@ -7,7 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-entertain-secondary min-h-screen">{children}</body>
+      <body className="bg-entertain-third min-h-screen w-full">{children}</body>
     </html>
   );
 }
