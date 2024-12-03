@@ -7,7 +7,12 @@ const MaxWithWrapper: React.FC<{
   children: ReactNode;
 }> = ({ customClass, addClass, children }) => {
   return (
-    <div className={cn(`w-full px-4 py-2 ${addClass}`, customClass)}>
+    <div
+      className={cn(
+        `w-full px-4 py-2 ${addClass ? addClass : ""}`,
+        customClass,
+      )}
+    >
       {children}
     </div>
   );

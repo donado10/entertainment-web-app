@@ -6,9 +6,13 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/public/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      gridTemplateRows: {
+        "20": "repeat(20, minmax(0, 1fr))",
+      },
       colors: {
         "entertain-primary": "#FC4747",
         "entertain-secondary": "#161D2F",
