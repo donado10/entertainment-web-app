@@ -7,12 +7,6 @@ import MaxWithWrapper from "@/components/MaxWithWrapper";
 export default function Home() {
   return (
     <div className="w-full md:p-4">
-      <div>
-        <Header />
-      </div>
-      <MaxWithWrapper>
-        <Search />
-      </MaxWithWrapper>
       <div className="w-full py-2 pl-4">
         <Trendingpage />
       </div>

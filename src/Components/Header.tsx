@@ -11,33 +11,53 @@ import Image from "next/image";
 import Link from "next/link";
 import Profile from "@/assets/icon-profile.png";
 import useMediaQuery, { EMediaQuery } from "@/hooks/useMediaQuery";
+import { usePathname, useRouter } from "next/navigation";
 
 const HeaderMobile = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   return (
     <nav className="grid w-full grid-cols-8 items-center p-2">
       <div className="col-span-1">
-        <Link href="#">
+        <Link href="/">
           <Image src={Logo} alt="Movie logo" />
         </Link>
       </div>
       <div className="col-start-3 col-end-4">
-        <Link href="#">
-          <Image src={NavHome} alt="nav home" className="m-auto" />
+        <Link href="/">
+          <Image
+            src={NavHome}
+            alt="nav home"
+            className={pathname === "/" ? "m-auto bg-white" : "m-auto"}
+          />
         </Link>
       </div>
       <div className="col-start-4 col-end-5">
-        <Link href="#">
-          <Image src={NavMovies} alt="nav movies" className="m-auto" />
+        <Link href="/movies">
+          <Image
+            src={NavMovies}
+            alt="nav movies"
+            className={pathname === "/movies" ? "m-auto bg-white" : "m-auto"}
+          />
         </Link>
       </div>
       <div className="col-start-5 col-end-6">
-        <Link href="#">
-          <Image src={NavTV} alt="nav tv" className="m-auto" />
+        <Link href="/series">
+          <Image
+            src={NavTV}
+            alt="nav tv"
+            className={pathname === "/series" ? "m-auto bg-white" : "m-auto"}
+          />
         </Link>
       </div>
       <div className="col-start-6 col-end-7">
-        <Link href="#">
-          <Image src={NavBookmark} alt="nav bookmark" className="m-auto" />
+        <Link href="/bookmarks">
+          <Image
+            src={NavBookmark}
+            alt="nav bookmark"
+            className={pathname === "/bookmarks" ? "m-auto bg-white" : "m-auto"}
+          />
         </Link>
       </div>
       <div className="col-start-8 col-end-9">
@@ -56,7 +76,7 @@ const HeaderMobile = () => {
 };
 const HeaderBig = () => {
   return (
-    <nav className="grid-rows-20 grid w-fit grid-cols-1 items-center p-2">
+    <nav className="grid w-fit grid-cols-1 grid-rows-20 items-center p-2">
       <div className="row-span-1">
         <Link href="#">
           <Image src={Logo} alt="Movie logo" />

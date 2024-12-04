@@ -6,37 +6,7 @@ import Image from "next/image";
 import IconNavMovie from "@/assets/icon-nav-movies.svg";
 import dataApp from "@/assets/data.json";
 
-interface IThumbnail {
-  trending: {
-    small: string;
-    large: string;
-  };
-  regular: {
-    small: string;
-    medium: string;
-    large: string;
-  };
-}
-
-interface IData {
-  title: string;
-  thumbnail: {
-    trending: {
-      small: string;
-      large: string;
-    };
-    regular: {
-      small: string;
-      medium: string;
-      large: string;
-    };
-  };
-  year: number;
-  category: string;
-  rating: string;
-  isBookmarked: boolean;
-  isTrending: boolean;
-}
+import { IData } from "@/interfaces/interfaces";
 
 const ShowMetaData = ({
   year,
@@ -69,14 +39,23 @@ const ShowMetaData = ({
 export const Card: React.FC<{ data: IData }> = ({ data }) => {
   return (
     <div
-      className={`aspect-[1/0.58] w-60 bg-cover bg-no-repeat`}
+      className={`aspect-[1/0.58] w-60 rounded-lg bg-cover bg-no-repeat`}
       style={{ backgroundImage: `url(${data.thumbnail.trending.small})` }}
     >
       <MaxWithWrapper>
         <div className="ml-auto w-fit rounded-full bg-entertain-secondary/50 p-2">
-          <Image src={BookmarkEmpty} alt="bookmark empty" className="m-auto" />
+          {!data.isBookmarked && (
+            <Image
+              src={BookmarkEmpty}
+              alt="bookmark empty"
+              className="m-auto"
+            />
+          )}
+          {data.isBookmarked && (
+            <Image src={BookmarkFull} alt="bookmark full" className="m-auto" />
+          )}
         </div>
-        <div className="mt-8">
+        <div className="mt-10">
           <ShowMetaData
             year={data.year}
             category={data.category}
