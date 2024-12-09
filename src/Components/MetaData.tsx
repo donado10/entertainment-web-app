@@ -1,5 +1,5 @@
 import Image from "next/image";
-import IconNavMovie from "@/assets/icon-nav-movies.svg";
+import IconNavMovie from "@/assets/icon-nav-movies-active.svg";
 
 export const MetaData = ({
   year,

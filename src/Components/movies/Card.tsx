@@ -7,6 +7,8 @@ import dataApp from "@/assets/data.json";
 import { MetaData } from "../MetaData";
 
 import { IData } from "@/interfaces/interfaces";
+import { CardsLayout } from "../Layouts";
+import BookmarkButton from "../BookmarkButton";
 
 export const Card: React.FC<{ data: IData }> = ({ data }) => {
   return (
@@ -15,23 +17,8 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
         className={`aspect-[1/0.6] w-full rounded-lg bg-cover bg-no-repeat`}
         style={{ backgroundImage: `url(${data.thumbnail.regular.small})` }}
       >
-        <MaxWithWrapper>
-          <div className="ml-auto w-fit rounded-full bg-entertain-secondary/50 p-2">
-            {!data.isBookmarked && (
-              <Image
-                src={BookmarkEmpty}
-                alt="bookmark empty"
-                className="m-auto"
-              />
-            )}
-            {data.isBookmarked && (
-              <Image
-                src={BookmarkFull}
-                alt="bookmark full"
-                className="m-auto"
-              />
-            )}
-          </div>
+        <MaxWithWrapper addClass="ml-auto w-fit">
+          <BookmarkButton isBookmarked={data.isBookmarked} />
         </MaxWithWrapper>
       </div>
       <div className="mt-2">
@@ -52,12 +39,12 @@ export const Cards = async () => {
     (data) => data.category.toLocaleLowerCase() === "movie",
   );
   return (
-    <ul className="mt-4 grid grid-cols-2 gap-4">
+    <CardsLayout>
       {dataListFilter.map((data, i) => (
         <li key={i}>
           <Card data={data} />
         </li>
       ))}
-    </ul>
+    </CardsLayout>
   );
 };

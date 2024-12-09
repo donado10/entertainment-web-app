@@ -1,5 +1,3 @@
-import Header from "@/components/Header";
-import Search from "@/components/Search";
 import Trendingpage from "./home/@trending/page";
 import RecommendPage from "./home/@recommended/page";
 import MaxWithWrapper from "@/components/MaxWithWrapper";

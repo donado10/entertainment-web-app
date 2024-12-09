@@ -68,6 +68,16 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      screens: {
+        xs: "0px",
+        // => @media (min-width: 640px) { ... }
+
+        md: "768px",
+        // => @media (min-width: 1024px) { ... }
+
+        xl: "1060px",
+        // => @media (min-width: 1060px) { ... }
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

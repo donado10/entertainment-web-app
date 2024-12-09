@@ -10,14 +10,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen w-full bg-entertain-third">
-        <div>
+      <body className="h-screen w-screen overflow-y-scroll bg-entertain-third xl:flex xl:flex-row">
+        <div className="md:p-4 xl:w-[10%]">
           <Header />
         </div>
-        <MaxWithWrapper>
-          <Search />
-        </MaxWithWrapper>
-        {children}
+        <main className="h-screen overflow-y-scroll xl:w-[90%]">
+          <MaxWithWrapper>
+            <Search />
+          </MaxWithWrapper>
+          {children}
+        </main>
       </body>
     </html>
   );

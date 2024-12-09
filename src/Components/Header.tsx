@@ -4,61 +4,87 @@ import React from "react";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import Logo from "@/assets/logo.svg";
 import NavHome from "@/assets/icon-nav-home.svg";
+import NavHomeActive from "@/assets/icon-nav-home-active.svg";
 import NavMovies from "@/assets/icon-nav-movies.svg";
+import NavMoviesActive from "@/assets/icon-nav-movies-active.svg";
 import NavBookmark from "@/assets/icon-nav-bookmark.svg";
+import NavBookmarkActive from "@/assets/icon-nav-bookmark-active.svg";
 import NavTV from "@/assets/icon-nav-tv-series.svg";
+import NavTVActive from "@/assets/icon-nav-tv-series-active.svg";
 import Image from "next/image";
 import Link from "next/link";
 import Profile from "@/assets/icon-profile.png";
 import useMediaQuery, { EMediaQuery } from "@/hooks/useMediaQuery";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+
+const href_param = {
+  home_ref: "/",
+  movies_ref: "/movies",
+  series_ref: "/series",
+  bookmarks_ref: "/bookmarks",
+};
 
 const HeaderMobile = () => {
-  const router = useRouter();
   const pathname = usePathname();
 
   return (
     <nav className="grid w-full grid-cols-8 items-center p-2">
       <div className="col-span-1">
-        <Link href="/">
+        <Link href={href_param.home_ref}>
           <Image src={Logo} alt="Movie logo" />
         </Link>
       </div>
       <div className="col-start-3 col-end-4">
-        <Link href="/">
-          <Image
-            src={NavHome}
-            alt="nav home"
-            className={pathname === "/" ? "m-auto bg-white" : "m-auto"}
-          />
-        </Link>
+        {pathname === "/" ? (
+          <Link href={href_param.home_ref}>
+            <Image src={NavHomeActive} alt="nav home" className={"m-auto"} />
+          </Link>
+        ) : (
+          <Link href={href_param.home_ref}>
+            <Image src={NavHome} alt="nav home" className={"m-auto"} />
+          </Link>
+        )}
       </div>
       <div className="col-start-4 col-end-5">
-        <Link href="/movies">
-          <Image
-            src={NavMovies}
-            alt="nav movies"
-            className={pathname === "/movies" ? "m-auto bg-white" : "m-auto"}
-          />
-        </Link>
+        {pathname === "/movies" ? (
+          <Link href={href_param.movies_ref}>
+            <Image
+              src={NavMoviesActive}
+              alt="nav movies"
+              className={"m-auto"}
+            />
+          </Link>
+        ) : (
+          <Link href={href_param.movies_ref}>
+            <Image src={NavMovies} alt="nav movies" className={"m-auto"} />
+          </Link>
+        )}
       </div>
       <div className="col-start-5 col-end-6">
-        <Link href="/series">
-          <Image
-            src={NavTV}
-            alt="nav tv"
-            className={pathname === "/series" ? "m-auto bg-white" : "m-auto"}
-          />
-        </Link>
+        {pathname === "/series" ? (
+          <Link href={href_param.series_ref}>
+            <Image src={NavTVActive} alt="nav tv" className={"m-auto"} />
+          </Link>
+        ) : (
+          <Link href={href_param.series_ref}>
+            <Image src={NavTV} alt="nav tv" className={"m-auto"} />
+          </Link>
+        )}
       </div>
       <div className="col-start-6 col-end-7">
-        <Link href="/bookmarks">
-          <Image
-            src={NavBookmark}
-            alt="nav bookmark"
-            className={pathname === "/bookmarks" ? "m-auto bg-white" : "m-auto"}
-          />
-        </Link>
+        {pathname === "/bookmarks" ? (
+          <Link href={href_param.bookmarks_ref}>
+            <Image
+              src={NavBookmarkActive}
+              alt="nav bookmark"
+              className={"m-auto"}
+            />
+          </Link>
+        ) : (
+          <Link href={href_param.bookmarks_ref}>
+            <Image src={NavBookmark} alt="nav bookmark" className={"m-auto"} />
+          </Link>
+        )}
       </div>
       <div className="col-start-8 col-end-9">
         <div className="border-white-900 ml-auto aspect-square w-8 overflow-hidden rounded-full border-2">
@@ -75,32 +101,66 @@ const HeaderMobile = () => {
   );
 };
 const HeaderBig = () => {
+  const pathname = usePathname();
+
   return (
-    <nav className="grid w-fit grid-cols-1 grid-rows-20 items-center p-2">
+    <nav className="grid w-fit grid-cols-1 grid-rows-20 items-center">
       <div className="row-span-1">
-        <Link href="#">
+        <Link href={href_param.home_ref}>
           <Image src={Logo} alt="Movie logo" />
         </Link>
       </div>
       <div className="row-start-4 row-end-5">
-        <Link href="#">
-          <Image src={NavHome} alt="nav home" className="m-auto" />
-        </Link>
+        {pathname === "/" ? (
+          <Link href={href_param.home_ref}>
+            <Image src={NavHomeActive} alt="nav home" className={"m-auto"} />
+          </Link>
+        ) : (
+          <Link href={href_param.home_ref}>
+            <Image src={NavHome} alt="nav home" className={"m-auto"} />
+          </Link>
+        )}
       </div>
       <div className="row-start-6 row-end-7">
-        <Link href="#">
-          <Image src={NavMovies} alt="nav movies" className="m-auto" />
-        </Link>
+        {pathname === "/movies" ? (
+          <Link href={href_param.movies_ref}>
+            <Image
+              src={NavMoviesActive}
+              alt="nav movies"
+              className={"m-auto"}
+            />
+          </Link>
+        ) : (
+          <Link href={href_param.movies_ref}>
+            <Image src={NavMovies} alt="nav movies" className={"m-auto"} />
+          </Link>
+        )}
       </div>
       <div className="row-start-8 row-end-9">
-        <Link href="#">
-          <Image src={NavTV} alt="nav tv" className="m-auto" />
-        </Link>
+        {pathname === "/series" ? (
+          <Link href={href_param.series_ref}>
+            <Image src={NavTVActive} alt="nav tv" className={"m-auto"} />
+          </Link>
+        ) : (
+          <Link href={href_param.series_ref}>
+            <Image src={NavTV} alt="nav tv" className={"m-auto"} />
+          </Link>
+        )}
       </div>
       <div className="row-start-10 row-end-11">
-        <Link href="#">
-          <Image src={NavBookmark} alt="nav bookmark" className="m-auto" />
-        </Link>
+        {pathname === "/bookmarks" ? (
+          <Link href={href_param.bookmarks_ref}>
+            <Image
+              src={NavBookmarkActive}
+              alt="nav bookmark"
+              className={"m-auto"}
+            />
+          </Link>
+        ) : (
+          <Link href={href_param.bookmarks_ref}>
+            <Image src={NavBookmark} alt="nav bookmark" className={"m-auto"} />
+          </Link>
+        )}
       </div>
       <div className="row-start-[20] row-end-[21]">
         <Link
@@ -126,14 +186,14 @@ const Header = () => {
   return (
     <>
       {isMobile && !isBig && (
-        <MaxWithWrapper addClass="bg-entertain-secondary w-full md:rounded-md">
+        <div className="w-full bg-entertain-secondary md:rounded-md">
           <HeaderMobile />
-        </MaxWithWrapper>
+        </div>
       )}
       {isBig && (
-        <MaxWithWrapper addClass="bg-entertain-secondary w-fit h-screen md:rounded-md">
+        <div className="h-screen-[90vh] w-fit bg-entertain-secondary p-4 md:rounded-md">
           <HeaderBig />
-        </MaxWithWrapper>
+        </div>
       )}
     </>
   );
