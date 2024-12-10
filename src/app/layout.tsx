@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen w-screen overflow-y-scroll bg-entertain-third xl:flex xl:flex-row">
-        <div className="md:p-4 xl:w-[10%]">
+        <div className="sticky md:p-4 xl:w-[10%]">
           <Header />
         </div>
         <main className="h-screen overflow-y-scroll xl:w-[90%]">

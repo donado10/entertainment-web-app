@@ -7,6 +7,7 @@ import { MetaData } from "../MetaData";
 
 import { IData } from "@/interfaces/interfaces";
 import { CardsLayout } from "../Layouts";
+import { getData } from "@/functions/functions";
 
 export const Card: React.FC<{ data: IData }> = ({ data }) => {
   return (
@@ -32,7 +33,7 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
 };
 
 export const Cards = async () => {
-  const dataList: IData[] = dataApp as IData[];
+  const dataList: IData[] = await getData();
   const dataListFilter = dataList.filter(
     (data) => data.category.toLocaleLowerCase() === "tv series",
   );

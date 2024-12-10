@@ -3,6 +3,7 @@ import TitleSection from "./TitleSection";
 import { ESection, Cards as SearchCards } from "./search/Card";
 import dataApp from "@/assets/data.json";
 import { IData } from "@/interfaces/interfaces";
+import { getData } from "@/functions/functions";
 
 const dataToFilter = (data: IData[], section: ESection, payload: string) => {
   if (section === ESection.ALL) {
@@ -29,14 +30,14 @@ const dataToFilter = (data: IData[], section: ESection, payload: string) => {
   return data;
 };
 
-const FilterSection = ({
+const FilterSection = async ({
   section,
   search,
 }: {
   section: ESection;
   search: string;
 }) => {
-  const dataList: IData[] = dataApp as IData[];
+  const dataList: IData[] = await getData();
   const dataListFilter = dataToFilter(dataList, section, search);
   return (
     <div>
