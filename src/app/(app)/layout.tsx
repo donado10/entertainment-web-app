@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import "./globals.css";
+import "../css/globals.css";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import Search from "@/components/Search";
 
