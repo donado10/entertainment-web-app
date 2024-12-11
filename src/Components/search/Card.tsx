@@ -21,7 +21,7 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
         style={{ backgroundImage: `url(${data.thumbnail.regular.small})` }}
       >
         <MaxWithWrapper addClass="ml-auto w-fit">
-          <BookmarkButton isBookmarked={data.isBookmarked} />
+          <BookmarkButton show={data.title} isBookmarked={data.isBookmarked} />
         </MaxWithWrapper>
       </div>
       <div className="mt-2">

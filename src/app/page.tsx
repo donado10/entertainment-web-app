@@ -3,6 +3,8 @@ import RecommendPage from "./home/@recommended/page";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import FilterSection from "@/components/Filter";
 import { ESection } from "@/components/search/Card";
+import { Suspense } from "react";
+import LoadCard from "@/components/loaders/Card";
 
 interface Params {
   searchParams: Promise<{ [key: string]: string | undefined }>;
@@ -19,14 +21,18 @@ export default async function Home({ searchParams }: Params) {
             <Trendingpage />
           </div>
           <MaxWithWrapper>
-            <RecommendPage />
+            <Suspense fallback={<LoadCard />}>
+              <RecommendPage />
+            </Suspense>
           </MaxWithWrapper>
         </>
       )}
       {search && (
         <>
           <MaxWithWrapper>
-            <FilterSection section={ESection.ALL} search={search} />
+            <Suspense fallback={<LoadCard />}>
+              <FilterSection section={ESection.ALL} search={search} />
+            </Suspense>
           </MaxWithWrapper>
         </>
       )}

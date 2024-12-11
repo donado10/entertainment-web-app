@@ -1,7 +1,6 @@
 import React from "react";
 import TitleSection from "./TitleSection";
 import { ESection, Cards as SearchCards } from "./search/Card";
-import dataApp from "@/assets/data.json";
 import { IData } from "@/interfaces/interfaces";
 import { getData } from "@/functions/functions";
 

@@ -1,3 +1,5 @@
+"use server";
+
 import connectDB from "@/config/database";
 import moviesModel from "@/models/moviesModel";
 
@@ -9,3 +11,13 @@ export const getData = async () => {
   const data: IData[] = JSON.parse(JSON.stringify(await moviesModel.find()));
   return data;
 };
+
+export const setBookmark = async (show: string, isBookmarked: boolean) => {
+  await moviesModel.updateOne(
+    { title: show },
+    { $set: { isBookmarked: isBookmarked } },
+  );
+};
+
+export const simulateDelay = async (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
