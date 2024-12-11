@@ -7,8 +7,6 @@ import { simulateDelay } from "@/functions/functions";
 import LoadCard from "@/components/loaders/Card";
 
 const Trendingpage = async () => {
-  await simulateDelay(3000);
-
   return (
     <section>
       <TitleSection title="Trending" />
