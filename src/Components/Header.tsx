@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import MaxWithWrapper from "@/components/MaxWithWrapper";
 import Logo from "@/assets/logo.svg";
 import NavHome from "@/assets/icon-nav-home.svg";
 import NavHomeActive from "@/assets/icon-nav-home-active.svg";

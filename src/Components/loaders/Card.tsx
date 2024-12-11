@@ -16,7 +16,7 @@ const BigCard = () => {
 const SmallCard = () => {
   return (
     <div className="flex flex-col gap-4">
-      <Skeleton className="aspect-[1/0.4] w-full" />
+      <Skeleton className="aspect-[1/0.5] w-full" />
       <div className="flex flex-col gap-2">
         <Skeleton className="h-4 w-[10rem]" />
         <Skeleton className="h-4 w-[5rem]" />

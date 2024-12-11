@@ -1,8 +1,6 @@
 import React from "react";
 import MaxWithWrapper from "../MaxWithWrapper";
 import BookmarkButton from "../BookmarkButton";
-import Image from "next/image";
-import dataApp from "@/assets/data.json";
 import { MetaData } from "../MetaData";
 
 import { IData } from "@/interfaces/interfaces";

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FormEventHandler, useRef } from "react";
+import React, { useRef } from "react";
 import SearchIcon from "@/assets/icon-search.svg";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";

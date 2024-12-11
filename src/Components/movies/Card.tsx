@@ -5,7 +5,7 @@ import { MetaData } from "../MetaData";
 import { IData } from "@/interfaces/interfaces";
 import { CardsLayout } from "../Layouts";
 import BookmarkButton from "../BookmarkButton";
-import { getData } from "@/functions/functions";
+import { getData, simulateDelay } from "@/functions/functions";
 
 export const Card: React.FC<{ data: IData }> = ({ data }) => {
   return (
@@ -31,6 +31,8 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
 };
 
 export const Cards = async () => {
+  await simulateDelay(3000);
+
   const dataList: IData[] = await getData();
   const dataListFilter = dataList.filter(
     (data) => data.category.toLocaleLowerCase() === "movie",

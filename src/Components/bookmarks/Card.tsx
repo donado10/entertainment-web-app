@@ -1,9 +1,5 @@
 import React from "react";
 import MaxWithWrapper from "../MaxWithWrapper";
-import BookmarkEmpty from "@/assets/icon-bookmark-empty.svg";
-import BookmarkFull from "@/assets/icon-bookmark-full.svg";
-import Image from "next/image";
-import dataApp from "@/assets/data.json";
 import { MetaData } from "../MetaData";
 
 import { IData } from "@/interfaces/interfaces";

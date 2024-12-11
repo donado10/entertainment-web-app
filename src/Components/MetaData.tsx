@@ -14,7 +14,7 @@ export const MetaData = ({
 }) => {
   return (
     <div className="flex flex-col text-white">
-      <p className="flex flex-row items-center gap-2 text-xs font-normal text-gray-300">
+      <p className="flex flex-row items-center gap-2 text-xs font-semibold text-gray-500">
         <span>{year}</span>
         <span className="block aspect-square w-1 rounded-full bg-gray-300" />
         <span>
