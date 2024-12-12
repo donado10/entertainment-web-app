@@ -9,7 +9,7 @@ const connectDB = async () => {
     await mongoose.connect(
       "mongodb+srv://kingenou:PBaN1Igpp3BLq9cC@cluster0.kw8gu.mongodb.net/entertainment_web_app",
     );
-    console.log("Mongodb connected");
+    console.log("Mongodb connecteda");
     return true;
   } catch (error) {
     console.log(error);
