@@ -21,17 +21,21 @@ const LoginPage = () => {
     console.log(data);
   };
 
+  const inputClass = ` bg-none p-4 py-3 focus:border-white`;
+
   return (
     <form className="" onSubmit={handleSubmit(onSubmit)}>
       <MaxWithWrapper addClass="flex w-[25rem] flex-col gap-8 bg-entertain-secondary text-white p-8 rounded-xl ">
         <span className="text-3xl">Login</span>
         <div className="w-full">
-          <MaxWithWrapper addClass="w-full border-b-2 border-gray-600 hover:border-white flex items-center gap-1">
+          <MaxWithWrapper
+            addClass={`w-full   flex items-center gap-1 p-0 ${errors?.mail && "border-b-2 border-entertain-primary"}`}
+          >
             <input
               id="mail"
               type="email"
               placeholder="Email address"
-              className={`${!errors?.mail ? "w-full" : "w-3/5"} bg-none py-2`}
+              className={`${!errors?.mail ? "w-full" : "w-3/5"} ${!errors?.mail && "border-b-2 border-gray-600"} ${inputClass}`}
               {...register("mail", {
                 required: "Can't be empty",
                 pattern: {
@@ -46,12 +50,14 @@ const LoginPage = () => {
               </p>
             )}
           </MaxWithWrapper>
-          <MaxWithWrapper addClass="w-full border-b-2 border-gray-600 hover:border-white flex items-center gap-1">
+          <MaxWithWrapper
+            addClass={`w-full   flex items-center gap-1 p-0 ${errors?.password && "border-b-2 border-entertain-primary"}`}
+          >
             <input
               id="password"
               type="password"
               placeholder="Password"
-              className={`${!errors?.password ? "w-full" : "w-3/5"} bg-none py-2`}
+              className={`${!errors?.password ? "w-full" : "w-3/5"} ${!errors?.password && "border-b-2 border-gray-600"} ${inputClass}`}
               {...register("password", {
                 required: "Can't be empty",
               })}
