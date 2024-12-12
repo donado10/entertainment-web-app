@@ -6,7 +6,9 @@ const connectDB = async () => {
   }
 
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
+    await mongoose.connect(
+      "mongodb+srv://kingenou:PBaN1Igpp3BLq9cC@cluster0.kw8gu.mongodb.net/entertainment_web_app",
+    );
     console.log("Mongodb connected");
     return true;
   } catch (error) {
