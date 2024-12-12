@@ -3,14 +3,16 @@
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import Link from "next/link";
 import React from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 interface IFormValues {
   mail: string;
   password: string;
+  confirmPassword: string;
 }
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const {
     register,
     handleSubmit,
@@ -24,7 +26,7 @@ const LoginPage = () => {
   return (
     <form className="" onSubmit={handleSubmit(onSubmit)}>
       <MaxWithWrapper addClass="flex w-[25rem] flex-col gap-8 bg-entertain-secondary text-white p-8 rounded-xl ">
-        <span className="text-3xl">Login</span>
+        <span className="text-3xl">Sign Up</span>
         <div className="w-full">
           <MaxWithWrapper addClass="w-full border-b-2 border-gray-600 hover:border-white flex items-center gap-1">
             <input
@@ -62,14 +64,30 @@ const LoginPage = () => {
               </p>
             )}
           </MaxWithWrapper>
+          <MaxWithWrapper addClass="w-full border-b-2 border-gray-600 hover:border-white flex items-center gap-1">
+            <input
+              id="confirmPassword"
+              type="password"
+              placeholder="Repeat Password"
+              className={`${!errors?.confirmPassword ? "w-full" : "w-3/5"} bg-none py-2`}
+              {...register("confirmPassword", {
+                required: "Can't be empty",
+              })}
+            />
+            {errors?.confirmPassword && (
+              <p className="ml-auto text-[10px] text-entertain-primary">
+                {errors.confirmPassword.message}
+              </p>
+            )}
+          </MaxWithWrapper>
         </div>
         <button className="w-full rounded-xl bg-entertain-primary px-2 py-3 hover:bg-white hover:text-black">
-          <span className="">Login to your account</span>
+          <span className="">Create an account</span>
         </button>
         <p className="mx-auto">
-          Don't have an account ?{" "}
-          <Link href="/signup" className="text-entertain-primary">
-            Sign Up
+          Already have an account ?{" "}
+          <Link href="/login" className="text-entertain-primary">
+            Login
           </Link>
         </p>
       </MaxWithWrapper>
@@ -77,4 +95,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
