@@ -2,9 +2,8 @@
 
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import Link from "next/link";
-import React from "react";
-import { SubmitHandler } from "react-hook-form";
-import { useForm } from "react-hook-form";
+import React, { useRef, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 interface IFormValues {
   mail: string;
@@ -17,11 +16,19 @@ const SignUpPage = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<IFormValues>();
+
+  const [passwordHandler, setPasswordHandler] = useState<{
+    password: string;
+    confirmPassword: string;
+  }>({ password: "", confirmPassword: "" });
 
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
     console.log(data);
   };
+
+  console.log(errors);
 
   return (
     <form className="" onSubmit={handleSubmit(onSubmit)}>
@@ -57,6 +64,12 @@ const SignUpPage = () => {
               {...register("password", {
                 required: "Can't be empty",
               })}
+              onChange={(e) => {
+                const value = e.currentTarget.value;
+                setPasswordHandler((prev) => {
+                  return { ...prev, passwords: value };
+                });
+              }}
             />
             {errors?.password && (
               <p className="ml-auto text-[10px] text-entertain-primary">
@@ -72,7 +85,18 @@ const SignUpPage = () => {
               className={`${!errors?.confirmPassword ? "w-full" : "w-3/5"} bg-none py-2`}
               {...register("confirmPassword", {
                 required: "Can't be empty",
+                validate: (val: string) => {
+                  if (watch("password") != val) {
+                    return "Your passwords do no match";
+                  }
+                },
               })}
+              onChange={(e) => {
+                const value = e.currentTarget.value;
+                setPasswordHandler((prev) => {
+                  return { ...prev, confirmPassword: value };
+                });
+              }}
             />
             {errors?.confirmPassword && (
               <p className="ml-auto text-[10px] text-entertain-primary">
