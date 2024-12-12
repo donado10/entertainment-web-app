@@ -2,7 +2,7 @@
 
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 interface IFormValues {

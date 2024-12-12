@@ -1,4 +1,3 @@
-import MaxWithWrapper from "@/components/MaxWithWrapper";
 import TitleSection from "@/components/TitleSection";
 import React, { Suspense } from "react";
 import { Cards as RecommendCards } from "@/components/recommended/Card";
