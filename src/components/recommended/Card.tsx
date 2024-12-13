@@ -31,7 +31,6 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
 };
 
 export const Cards = async () => {
-  await simulateDelay(3000);
   const dataList: IData[] = await getData();
   const dataListFilter = dataList.filter((data) => !data.isTrending);
   return (
