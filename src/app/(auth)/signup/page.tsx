@@ -21,12 +21,14 @@ const SignUpPage = () => {
     watch,
   } = useForm<IFormValues>();
 
-  const onSubmit: SubmitHandler<IFormValues> = (data) => {
-    signup(null, {
+  const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+    const response = await signup(null, {
       username: data.mail,
       password: data.password,
       confirmPassword: data.confirmPassword,
     });
+
+    console.log(response);
   };
 
   const inputClass = ` bg-none p-4 py-3 focus:border-white`;

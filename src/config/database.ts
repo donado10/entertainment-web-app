@@ -1,4 +1,3 @@
-//db/mongoose.ts
 import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
 
 import mongoose from "mongoose";
@@ -7,6 +6,8 @@ declare global {
 }
 
 const MONGODB_URI = process.env.MONGODB_URI!;
+
+console.log(process.env);
 
 if (!MONGODB_URI) {
   throw new Error(
@@ -20,7 +21,7 @@ if (!cached) {
   cached = global.mongoose = { conn: null, promise: null };
 }
 
-async function dbConnect() {
+async function connectDB() {
   if (cached.conn) {
     return cached.conn;
   }
@@ -42,7 +43,7 @@ async function dbConnect() {
   return cached.conn;
 }
 
-export default dbConnect;
+export default connectDB;
 
 export const adapter = new MongodbAdapter(
   mongoose.connection.collection("sessions"),

@@ -12,9 +12,10 @@ import NavTV from "@/assets/icon-nav-tv-series.svg";
 import NavTVActive from "@/assets/icon-nav-tv-series-active.svg";
 import Image from "next/image";
 import Link from "next/link";
-import Profile from "@/assets/icon-profile.png";
 import useMediaQuery, { EMediaQuery } from "@/hooks/useMediaQuery";
 import { usePathname } from "next/navigation";
+import { GrLogout } from "react-icons/gr";
+import { logout } from "@/app/(app)/actions";
 
 const href_param = {
   home_ref: "/",
@@ -85,8 +86,8 @@ const HeaderMobile = () => {
           </Link>
         )}
       </div>
-      <div className="col-start-8 col-end-9">
-        <div className="border-white-900 ml-auto aspect-square w-8 overflow-hidden rounded-full border-2">
+      <div className="col-start-8 col-end-9 flex items-center gap-3">
+        {/* <div className="border-white-900 ml-auto aspect-square w-8 overflow-hidden rounded-full border-2">
           <Image
             src={Profile}
             width={30}
@@ -94,6 +95,9 @@ const HeaderMobile = () => {
             alt="Profile"
             className="bg-white"
           />
+        </div> */}
+        <div className="">
+          <GrLogout className="h-[30px] w-[30px] text-white" />
         </div>
       </div>
     </nav>
@@ -161,19 +165,10 @@ const HeaderBig = () => {
           </Link>
         )}
       </div>
-      <div className="row-start-[20] row-end-[21]">
-        <Link
-          href="#"
-          className="border-white-900 ml-auto block aspect-square w-8 overflow-hidden rounded-full border-2"
-        >
-          <Image
-            src={Profile}
-            width={30}
-            height={30}
-            alt="Profile"
-            className="bg-white"
-          />
-        </Link>
+      <div className="row-start-[20] -row-end-1">
+        <button onClick={async () => await logout()} className="cursor-pointer">
+          <GrLogout className="h-[30px] w-[30px] text-white" />
+        </button>
       </div>
     </nav>
   );

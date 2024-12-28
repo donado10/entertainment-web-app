@@ -1,11 +1,11 @@
 "use server";
 
 import { lucia } from "@/config/auth";
-import dbConnect from "@/config/database";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { Argon2id } from "oslo/password";
 import userModel from "@/models/usersModel";
+import connectDB from "@/config/database";
 
 interface IFormSignin {
   username: string;
@@ -16,7 +16,7 @@ export async function login(_: any, formData: IFormSignin) {
   const username = formData.username;
   const password = formData.password;
 
-  await dbConnect();
+  await connectDB();
   const existingUser = await userModel.findOne({ username: username });
 
   if (!existingUser) {

@@ -1,11 +1,9 @@
 "use server";
 
-import { lucia } from "@/config/auth";
-import dbConnect from "@/config/database";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { Argon2id } from "oslo/password";
 import userModel from "@/models/usersModel";
+import connectDB from "@/config/database";
 
 interface IFormSignup {
   username: string;
@@ -34,7 +32,7 @@ export async function signup(_: any, formData: IFormSignup) {
   const hashedPassword = await new Argon2id().hash(password);
 
   try {
-    await dbConnect();
+    await connectDB();
     const user = await userModel.create({
       username: username,
       password: hashedPassword,

@@ -2,8 +2,6 @@ import Header from "@/components/Header";
 import "../css/globals.css";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import Search from "@/components/Search";
-import { validateRequest } from "@/config/auth";
-import { redirect } from "next/navigation";
 
 export default async function RootLayout({
   children,
