@@ -5,12 +5,20 @@ import MaxWithWrapper from "@/components/MaxWithWrapper";
 import FilterSection from "@/components/Filter";
 import { ESection } from "@/components/search/Card";
 import LoadCard from "@/components/loaders/Card";
+import { validateRequest } from "@/config/auth";
+import { redirect } from "next/navigation";
 
 interface Params {
   searchParams: Promise<{ [key: string]: string | undefined }>;
 }
 
 const page = async ({ searchParams }: Params) => {
+  const { user } = await validateRequest();
+
+  if (!user) {
+    redirect("/login");
+  }
+
   const search = (await searchParams).search;
 
   return (

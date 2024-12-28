@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen w-screen bg-entertain-third">
-        <main className="mt-16 flex h-screen w-full flex-col items-center justify-start gap-16">
+        <main className="mt-16 flex h-screen w-full flex-col items-center justify-start gap-16 tracking-wide">
           <span>
             <Image src={LogoIcon} alt="icon movie" />
           </span>

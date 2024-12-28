@@ -2,31 +2,25 @@
 
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import Link from "next/link";
-
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { signup } from "./actions";
+import { login } from "./actions";
+import { getCookie, getCookies } from "cookies-next";
 
 interface IFormValues {
   mail: string;
   password: string;
-  confirmPassword: string;
 }
 
-const SignUpPage = () => {
+const Login = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm<IFormValues>();
 
   const onSubmit: SubmitHandler<IFormValues> = (data) => {
-    signup(null, {
-      username: data.mail,
-      password: data.password,
-      confirmPassword: data.confirmPassword,
-    });
+    login(null, { username: data.mail, password: data.password });
   };
 
   const inputClass = ` bg-none p-4 py-3 focus:border-white`;
@@ -34,7 +28,7 @@ const SignUpPage = () => {
   return (
     <form className="" onSubmit={handleSubmit(onSubmit)}>
       <MaxWithWrapper addClass="flex w-[25rem] flex-col gap-8 bg-entertain-secondary text-white p-8 rounded-xl ">
-        <span className="text-3xl">Sign Up</span>
+        <span className="text-3xl">Login</span>
         <div className="w-full">
           <MaxWithWrapper
             addClass={`w-full   flex items-center gap-1 p-0 ${errors?.mail && "border-b-2 border-entertain-primary"}`}
@@ -53,7 +47,7 @@ const SignUpPage = () => {
               })}
             />
             {errors?.mail && (
-              <p className={`ml-auto text-[10px] text-entertain-primary`}>
+              <p className="ml-auto text-[10px] text-entertain-primary">
                 {errors.mail.message}
               </p>
             )}
@@ -65,7 +59,7 @@ const SignUpPage = () => {
               id="password"
               type="password"
               placeholder="Password"
-              className={`${!errors?.password ? "w-full" : "w-3/5 border-entertain-primary"} ${!errors?.password && "border-b-2 border-gray-600"} ${inputClass}`}
+              className={`${!errors?.password ? "w-full" : "w-3/5"} ${!errors?.password && "border-b-2 border-gray-600"} ${inputClass}`}
               {...register("password", {
                 required: "Can't be empty",
               })}
@@ -76,37 +70,14 @@ const SignUpPage = () => {
               </p>
             )}
           </MaxWithWrapper>
-          <MaxWithWrapper
-            addClass={`w-full   flex items-center gap-1 p-0 ${errors?.confirmPassword && "border-b-2 border-entertain-primary"}`}
-          >
-            <input
-              id="confirmPassword"
-              type="password"
-              placeholder="Repeat Password"
-              className={`${!errors?.confirmPassword ? "w-full" : "w-3/5 border-entertain-primary"} ${!errors?.confirmPassword && "border-b-2 border-gray-600"} ${inputClass}`}
-              {...register("confirmPassword", {
-                required: "Can't be empty",
-                validate: (val: string) => {
-                  if (watch("password") != val) {
-                    return "Your passwords do no match";
-                  }
-                },
-              })}
-            />
-            {errors?.confirmPassword && (
-              <p className="ml-auto text-[10px] text-entertain-primary">
-                {errors.confirmPassword.message}
-              </p>
-            )}
-          </MaxWithWrapper>
         </div>
         <button className="w-full rounded-xl bg-entertain-primary px-2 py-3 hover:bg-white hover:text-black">
-          <span className="">Create an account</span>
+          <span className="">Login to your account</span>
         </button>
         <p className="mx-auto">
-          Already have an account ?{" "}
-          <Link href="/login" className="text-entertain-primary">
-            Login
+          Don't have an account ?{" "}
+          <Link href="/signup" className="text-entertain-primary">
+            Sign Up
           </Link>
         </p>
       </MaxWithWrapper>
@@ -114,4 +85,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default Login;
