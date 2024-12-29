@@ -4,11 +4,10 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 
 const LoginPage = async () => {
-  const sessionId =
-    (await cookies()).get(lucia.sessionCookieName)?.value ?? null;
+  const user = await validateRequest();
 
-  if (sessionId) {
-    redirect("/");
+  if (user.user) {
+    return redirect("/");
   }
 
   return (

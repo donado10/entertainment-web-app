@@ -107,7 +107,7 @@ const HeaderBig = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="grid w-fit grid-cols-1 grid-rows-20 items-center">
+    <nav className="grid h-full w-fit grid-cols-1 grid-rows-20 items-center">
       <div className="row-span-1">
         <Link href={href_param.home_ref}>
           <Image src={Logo} alt="Movie logo" />
@@ -165,7 +165,7 @@ const HeaderBig = () => {
           </Link>
         )}
       </div>
-      <div className="row-start-[20] -row-end-1">
+      <div className="row-start-[19] row-end-[20]">
         <button onClick={async () => await logout()} className="cursor-pointer">
           <GrLogout className="h-[30px] w-[30px] text-white" />
         </button>
@@ -185,7 +185,7 @@ const Header = () => {
         </div>
       )}
       {isBig && (
-        <div className="h-screen-[90vh] w-fit bg-entertain-secondary p-4 md:rounded-md">
+        <div className="h-[95vh] w-fit bg-entertain-secondary p-4 md:rounded-md">
           <HeaderBig />
         </div>
       )}

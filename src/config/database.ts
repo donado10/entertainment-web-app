@@ -1,3 +1,4 @@
+import usersModel from "@/models/usersModel";
 import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
 
 import mongoose from "mongoose";
@@ -6,8 +7,6 @@ declare global {
 }
 
 const MONGODB_URI = process.env.MONGODB_URI!;
-
-console.log(process.env);
 
 if (!MONGODB_URI) {
   throw new Error(

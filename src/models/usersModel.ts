@@ -1,11 +1,14 @@
 import mongoose from "mongoose";
 
 interface User {
+  _id: mongoose.Schema.Types.ObjectId;
   password: string;
   username: string;
+  bookmarks: string[];
 }
 
 export const UserSchema = new mongoose.Schema<User>({
+  _id: mongoose.Schema.Types.ObjectId,
   username: {
     type: String,
     required: true,
@@ -13,6 +16,10 @@ export const UserSchema = new mongoose.Schema<User>({
   password: {
     type: String,
     required: true,
+  },
+  bookmarks: {
+    type: [String],
+    required: false,
   },
   //. . . other fields
 });

@@ -4,8 +4,8 @@ import { lucia } from "@/config/auth";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { Argon2id } from "oslo/password";
-import userModel from "@/models/usersModel";
 import connectDB from "@/config/database";
+import usersModel from "@/models/usersModel";
 
 interface IFormSignin {
   username: string;
@@ -17,7 +17,7 @@ export async function login(_: any, formData: IFormSignin) {
   const password = formData.password;
 
   await connectDB();
-  const existingUser = await userModel.findOne({ username: username });
+  const existingUser = await usersModel.findOne({ username: username });
 
   if (!existingUser) {
     return {
@@ -36,12 +36,19 @@ export async function login(_: any, formData: IFormSignin) {
     };
   }
 
+  console.log(existingUser);
+
   const session = await lucia.createSession(existingUser._id, {});
+
+  console.log(session);
+
   const sessionCookie = lucia.createSessionCookie(session.id);
+
   (await cookies()).set(
     sessionCookie.name,
     sessionCookie.value,
     sessionCookie.attributes,
   );
-  redirect("/");
+
+  return redirect("/");
 }

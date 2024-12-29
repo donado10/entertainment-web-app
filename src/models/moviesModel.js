@@ -1,6 +1,8 @@
 import { Schema, model, models } from "mongoose";
+import { stringify } from "querystring";
 
 const moviesSchema = new Schema({
+  _id: String,
   title: String,
   thumbnail: {
     trending: {
