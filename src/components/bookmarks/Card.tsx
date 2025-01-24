@@ -52,7 +52,6 @@ export const MoviesCards = async () => {
   const dataListFilter = dataList.filter(
     (data) => data.isBookmarked && data.category === "Movie",
   );
-  console.log(dataListFilter);
   return (
     <CardsLayout>
       {dataListFilter.map((data, i) => (

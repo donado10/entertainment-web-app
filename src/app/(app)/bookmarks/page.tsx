@@ -23,7 +23,7 @@ const page = async ({ searchParams }: Params) => {
   const search = (await searchParams).search;
 
   return (
-    <section>
+    <section className="flex flex-col gap-8">
       {!search && (
         <>
           <MaxWithWrapper>

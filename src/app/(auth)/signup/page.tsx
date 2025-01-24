@@ -37,7 +37,7 @@ const SignUpPage = () => {
     <form className="" onSubmit={handleSubmit(onSubmit)}>
       <MaxWithWrapper addClass="flex w-[25rem] flex-col gap-8 bg-entertain-secondary text-white p-8 rounded-xl ">
         <span className="text-3xl">Sign Up</span>
-        <div className="w-full">
+        <div className="flex w-full flex-col gap-4">
           <MaxWithWrapper
             addClass={`w-full   flex items-center gap-1 p-0 ${errors?.mail && "border-b-2 border-entertain-primary"}`}
           >
@@ -102,8 +102,8 @@ const SignUpPage = () => {
             )}
           </MaxWithWrapper>
         </div>
-        <button className="w-full rounded-xl bg-entertain-primary px-2 py-3 hover:bg-white hover:text-black">
-          <span className="">Create an account</span>
+        <button className="w-full rounded-md bg-entertain-primary px-2 py-3 hover:bg-white hover:text-black">
+          <span className="font-light">Create an account</span>
         </button>
         <p className="mx-auto">
           Already have an account ?{" "}

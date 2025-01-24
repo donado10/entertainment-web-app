@@ -2,11 +2,12 @@
 
 import useMediaQuery, { EMediaQuery } from "@/hooks/useMediaQuery";
 import { IData } from "@/interfaces/interfaces";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
+import PlayButton from "./PlayButton";
 
 export const CardsLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <ul className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
+    <ul className="mt-4 grid grid-cols-2 gap-8 md:grid-cols-3 xl:grid-cols-4">
       {children}
     </ul>
   );
@@ -21,6 +22,7 @@ export const TrendingCardsLayout = ({
 }) => {
   const isMobile = useMediaQuery(EMediaQuery.MOBILE);
   const isSmall = useMediaQuery(EMediaQuery.SMALL);
+  const [hover, setHover] = useState(false);
   return (
     <>
       {isMobile && !isSmall && (

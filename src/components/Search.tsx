@@ -27,7 +27,7 @@ const Search = () => {
       </div>
       <input
         type="text"
-        className="w-3/4 bg-transparent text-white outline-none"
+        className="w-3/4 bg-transparent text-xl text-white outline-none"
         placeholder="Search for movies or TV series"
         ref={inputRef}
       />

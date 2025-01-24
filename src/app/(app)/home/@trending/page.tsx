@@ -1,6 +1,6 @@
 import TitleSection from "@/components/TitleSection";
 import React, { Suspense } from "react";
-import { Cards as TrendingCards } from "@/components/trending/Card";
+import { Cards as TrendingCards } from "@/app/(app)/actions";
 import LoadCard from "@/components/loaders/Card";
 
 const Trendingpage = async () => {
@@ -9,7 +9,7 @@ const Trendingpage = async () => {
       <TitleSection title="Trending" />
       <Suspense
         fallback={
-          <ul className="mt-4 flex w-full items-center gap-3 overflow-x-scroll">
+          <ul className="mt-4 flex w-full items-center gap-8 overflow-x-scroll">
             <li>
               <LoadCard />
             </li>

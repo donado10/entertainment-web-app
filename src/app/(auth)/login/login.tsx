@@ -29,7 +29,7 @@ const Login = () => {
     <form className="" onSubmit={handleSubmit(onSubmit)}>
       <MaxWithWrapper addClass="flex w-[25rem] flex-col gap-8 bg-entertain-secondary text-white p-8 rounded-xl ">
         <span className="text-3xl">Login</span>
-        <div className="w-full">
+        <div className="flex w-full flex-col gap-4">
           <MaxWithWrapper
             addClass={`w-full   flex items-center gap-1 p-0 ${errors?.mail && "border-b-2 border-entertain-primary"}`}
           >
@@ -53,7 +53,7 @@ const Login = () => {
             )}
           </MaxWithWrapper>
           <MaxWithWrapper
-            addClass={`w-full   flex items-center gap-1 p-0 ${errors?.password && "border-b-2 border-entertain-primary"}`}
+            addClass={`w-full   flex items-center gap-1 p-0  ${errors?.password && "border-b-2 border-entertain-primary "}`}
           >
             <input
               id="password"
@@ -71,8 +71,8 @@ const Login = () => {
             )}
           </MaxWithWrapper>
         </div>
-        <button className="w-full rounded-xl bg-entertain-primary px-2 py-3 hover:bg-white hover:text-black">
-          <span className="">Login to your account</span>
+        <button className="w-full rounded-md bg-entertain-primary px-2 py-3 hover:bg-white hover:text-black">
+          <span className="font-light">Login to your account</span>
         </button>
         <p className="mx-auto">
           Don't have an account ?{" "}

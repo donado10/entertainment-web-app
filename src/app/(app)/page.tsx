@@ -22,7 +22,7 @@ export default async function Home({ searchParams }: Params) {
   const search = (await searchParams).search;
 
   return (
-    <div className="w-full md:p-4">
+    <div className="flex w-full flex-col gap-4 md:p-4">
       {!search && (
         <>
           <div className="w-full py-2 pl-4">

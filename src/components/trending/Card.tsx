@@ -1,18 +1,21 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import MaxWithWrapper from "../MaxWithWrapper";
 
 import { IData } from "@/interfaces/interfaces";
 import { TrendingCardsLayout } from "../Layouts";
 import { MetaData } from "../MetaData";
 import BookmarkButton from "../BookmarkButton";
-import { getData } from "@/functions/functions";
+import PlayButton from "../PlayButton";
 
 export const Card: React.FC<{ data: IData }> = ({ data }) => {
+  const [hover, setHover] = useState(false);
   return (
     <TrendingCardsLayout data={data}>
-      <MaxWithWrapper addClass="flex flex-col justify-between  h-full">
+      <MaxWithWrapper addClass="relative flex flex-col justify-between  h-full">
+        <PlayButton />
         <BookmarkButton show={data.title} isBookmarked={data.isBookmarked} />
-
         <div className="w-fit">
           <MetaData
             year={data.year}
@@ -23,21 +26,5 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
         </div>
       </MaxWithWrapper>
     </TrendingCardsLayout>
-  );
-};
-
-export const Cards = async () => {
-  const dataList: IData[] = await getData();
-
-  const dataListFilter = dataList.filter((data) => data.isTrending);
-
-  return (
-    <ul className="mt-4 flex w-full items-center gap-3 overflow-x-scroll">
-      {dataListFilter.map((data, i) => (
-        <li key={i}>
-          <Card data={data} />
-        </li>
-      ))}
-    </ul>
   );
 };
