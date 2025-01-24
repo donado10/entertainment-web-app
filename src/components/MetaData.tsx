@@ -14,14 +14,14 @@ export const MetaData = ({
 }) => {
   return (
     <div className="flex flex-col text-white">
-      <p className="flex flex-row items-center gap-2 text-xs font-semibold text-gray-500">
+      <p className="text-md flex flex-row items-center gap-2 font-semibold text-gray-400">
         <span>{year}</span>
-        <span className="block aspect-square w-1 rounded-full bg-gray-300" />
+        <span className="block aspect-square w-1 rounded-full bg-gray-400" />
         <span>
           <Image src={IconNavMovie} alt="icon movie" />
         </span>
         <span>{category}</span>
-        <span className="block aspect-square w-1 rounded-full bg-gray-300" />
+        <span className="block aspect-square w-1 rounded-full bg-gray-400" />
         <span>{rating}</span>
       </p>
       <h1 className="text-base">{title}</h1>

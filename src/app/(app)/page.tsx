@@ -29,9 +29,7 @@ export default async function Home({ searchParams }: Params) {
             <Trendingpage />
           </div>
           <MaxWithWrapper>
-            <Suspense fallback={<LoadCard />}>
-              <RecommendPage />
-            </Suspense>
+            <RecommendPage />
           </MaxWithWrapper>
         </>
       )}

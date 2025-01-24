@@ -4,7 +4,7 @@ import { Lucia } from "lucia";
 import { cookies } from "next/headers";
 import { cache } from "react";
 import type { Session, User } from "lucia";
-import { adapter } from "@/config/database";
+import connectDB, { adapter } from "@/config/database";
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
@@ -23,6 +23,8 @@ export const validateRequest = cache(
   async (): Promise<
     { user: User; session: Session } | { user: null; session: null }
   > => {
+    await connectDB();
+
     const sessionId =
       (await cookies()).get(lucia.sessionCookieName)?.value ?? null;
 
