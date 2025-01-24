@@ -30,9 +30,29 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
   );
 };
 
-export const Cards = async () => {
+export const SeriesCards = async () => {
   const dataList: IData[] = await getData();
-  const dataListFilter = dataList.filter((data) => data.isBookmarked);
+  const dataListFilter = dataList.filter(
+    (data) => data.isBookmarked && data.category === "TV Series",
+  );
+
+  return (
+    <CardsLayout>
+      {dataListFilter.map((data, i) => (
+        <li key={i}>
+          <Card data={data} />
+        </li>
+      ))}
+    </CardsLayout>
+  );
+};
+
+export const MoviesCards = async () => {
+  const dataList: IData[] = await getData();
+  const dataListFilter = dataList.filter(
+    (data) => data.isBookmarked && data.category === "Movie",
+  );
+  console.log(dataListFilter);
   return (
     <CardsLayout>
       {dataListFilter.map((data, i) => (
