@@ -22,7 +22,6 @@ export const TrendingCardsLayout = ({
 }) => {
   const isMobile = useMediaQuery(EMediaQuery.MOBILE);
   const isSmall = useMediaQuery(EMediaQuery.SMALL);
-  const [hover, setHover] = useState(false);
   return (
     <>
       {isMobile && !isSmall && (
@@ -33,7 +32,7 @@ export const TrendingCardsLayout = ({
           {children}
         </div>
       )}
-      {isSmall && (
+      {isSmall && data.thumbnail.trending?.large && (
         <div
           className={`aspect-[1/0.48] w-[30rem] rounded-lg bg-cover bg-no-repeat`}
           style={{ backgroundImage: `url(${data.thumbnail.trending.large})` }}

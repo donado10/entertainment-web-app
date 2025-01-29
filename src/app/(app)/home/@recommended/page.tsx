@@ -1,7 +1,7 @@
 import TitleSection from "@/components/TitleSection";
 import React, { Suspense } from "react";
-import { Cards as RecommendCards } from "@/components/recommended/Card";
 import LoadCard from "@/components/loaders/Card";
+import { RecommendedCards } from "../../actions";
 
 const RecommendPage = () => {
   return (
@@ -19,7 +19,7 @@ const RecommendPage = () => {
           </ul>
         }
       >
-        <RecommendCards />
+        <RecommendedCards />
       </Suspense>
     </section>
   );

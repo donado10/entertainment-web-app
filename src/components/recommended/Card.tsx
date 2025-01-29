@@ -3,9 +3,7 @@ import MaxWithWrapper from "../MaxWithWrapper";
 import { MetaData } from "../MetaData";
 
 import { IData } from "@/interfaces/interfaces";
-import { CardsLayout } from "../Layouts";
 import BookmarkButton from "../BookmarkButton";
-import { getData, simulateDelay } from "@/functions/functions";
 
 export const Card: React.FC<{ data: IData }> = ({ data }) => {
   return (
@@ -27,19 +25,5 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
         />
       </div>
     </div>
-  );
-};
-
-export const Cards = async () => {
-  const dataList: IData[] = await getData();
-  const dataListFilter = dataList.filter((data) => !data.isTrending);
-  return (
-    <CardsLayout>
-      {dataListFilter.map((data, i) => (
-        <li key={i}>
-          <Card data={data} />
-        </li>
-      ))}
-    </CardsLayout>
   );
 };

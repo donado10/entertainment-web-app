@@ -13,8 +13,12 @@ export const Card: React.FC<{ data: IData }> = ({ data }) => {
   const [hover, setHover] = useState(false);
   return (
     <TrendingCardsLayout data={data}>
-      <MaxWithWrapper addClass="relative flex flex-col justify-between  h-full">
-        <PlayButton />
+      <MaxWithWrapper
+        addClass={`relative flex flex-col justify-between hover:bg-black/40 h-full`}
+        onEnter={() => setHover(true)}
+        onLeave={() => setHover(false)}
+      >
+        {hover && <PlayButton />}
         <BookmarkButton show={data.title} isBookmarked={data.isBookmarked} />
         <div className="w-fit">
           <MetaData

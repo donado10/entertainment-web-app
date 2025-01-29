@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import { IData } from "@/interfaces/interfaces";
 import { getData } from "@/functions/functions";
 import { Card } from "@/components/trending/Card";
+import { CardsLayout } from "@/components/Layouts";
 
 export async function logout() {
   const { session } = await validateRequest();
@@ -26,7 +27,7 @@ export async function logout() {
   return redirect("/login");
 }
 
-export const Cards = async () => {
+export const TrendingCards = async () => {
   const dataList: IData[] = await getData();
 
   const dataListFilter = dataList.filter((data) => data.isTrending);
@@ -39,5 +40,19 @@ export const Cards = async () => {
         </li>
       ))}
     </ul>
+  );
+};
+
+export const RecommendedCards = async () => {
+  const dataList: IData[] = await getData();
+  const dataListFilter = dataList.filter((data) => !data.isTrending);
+  return (
+    <CardsLayout>
+      {dataListFilter.map((data, i) => (
+        <li key={i}>
+          <Card data={data} />
+        </li>
+      ))}
+    </CardsLayout>
   );
 };

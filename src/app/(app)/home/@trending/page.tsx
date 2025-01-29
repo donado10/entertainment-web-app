@@ -1,6 +1,6 @@
 import TitleSection from "@/components/TitleSection";
 import React, { Suspense } from "react";
-import { Cards as TrendingCards } from "@/app/(app)/actions";
+import { TrendingCards } from "@/app/(app)/actions";
 import LoadCard from "@/components/loaders/Card";
 
 const Trendingpage = async () => {
