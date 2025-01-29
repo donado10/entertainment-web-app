@@ -1,12 +1,12 @@
 import TitleSection from "@/components/TitleSection";
 import React, { Suspense } from "react";
-import { Cards as SeriesCards } from "@/components/series/Card";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import FilterSection from "@/components/Filter";
 import { ESection } from "@/components/search/Card";
 import LoadCard from "@/components/loaders/Card";
 import { validateRequest } from "@/config/auth";
 import { redirect } from "next/navigation";
+import { SeriesCards } from "../actions";
 
 interface Params {
   searchParams: Promise<{ [key: string]: string | undefined }>;

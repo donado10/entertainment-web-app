@@ -36,11 +36,7 @@ export async function login(_: any, formData: IFormSignin) {
     };
   }
 
-  console.log(existingUser);
-
   const session = await lucia.createSession(existingUser._id, {});
-
-  console.log(session);
 
   const sessionCookie = lucia.createSessionCookie(session.id);
 

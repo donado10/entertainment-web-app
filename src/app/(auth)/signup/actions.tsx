@@ -37,7 +37,6 @@ export async function signup(_: any, formData: IFormSignup) {
   const hashedPassword = await new Argon2id().hash(password);
 
   const newId = new mongoose.Types.ObjectId();
-  console.log("New ObjectId:", newId);
 
   try {
     const user = await usersModel.create({
@@ -54,7 +53,6 @@ export async function signup(_: any, formData: IFormSignup) {
       sessionCookie.attributes,
     );
   } catch (e) {
-    console.log("error", e);
     return {
       error: "An unknown error occurred",
     };

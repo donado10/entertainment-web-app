@@ -5,8 +5,8 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { IData } from "@/interfaces/interfaces";
 import { getData } from "@/functions/functions";
-import { Card } from "@/components/trending/Card";
 import { CardsLayout } from "@/components/Layouts";
+import { LargeCard, MediumCard } from "@/components/Card";
 
 export async function logout() {
   const { session } = await validateRequest();
@@ -36,7 +36,7 @@ export const TrendingCards = async () => {
     <ul className="mt-4 flex w-full items-center gap-8 overflow-x-scroll">
       {dataListFilter.map((data, i) => (
         <li key={i}>
-          <Card data={data} />
+          <LargeCard data={data} />
         </li>
       ))}
     </ul>
@@ -50,7 +50,71 @@ export const RecommendedCards = async () => {
     <CardsLayout>
       {dataListFilter.map((data, i) => (
         <li key={i}>
-          <Card data={data} />
+          <MediumCard data={data} />
+        </li>
+      ))}
+    </CardsLayout>
+  );
+};
+export const MoviesCards = async () => {
+  const dataList: IData[] = await getData();
+  const dataListFilter = dataList.filter(
+    (data) => data.category.toLocaleLowerCase() === "movie",
+  );
+  return (
+    <CardsLayout>
+      {dataListFilter.map((data, i) => (
+        <li key={i}>
+          <MediumCard data={data} />
+        </li>
+      ))}
+    </CardsLayout>
+  );
+};
+
+export const SeriesCards = async () => {
+  const dataList: IData[] = await getData();
+  const dataListFilter = dataList.filter(
+    (data) => data.category.toLocaleLowerCase() === "tv series",
+  );
+  return (
+    <CardsLayout>
+      {dataListFilter.map((data, i) => (
+        <li key={i}>
+          <MediumCard data={data} />
+        </li>
+      ))}
+    </CardsLayout>
+  );
+};
+
+export const BookmarkSeriesCards = async () => {
+  const dataList: IData[] = await getData();
+  const dataListFilter = dataList.filter(
+    (data) => data.isBookmarked && data.category === "TV Series",
+  );
+
+  return (
+    <CardsLayout>
+      {dataListFilter.map((data, i) => (
+        <li key={i}>
+          <MediumCard data={data} />
+        </li>
+      ))}
+    </CardsLayout>
+  );
+};
+
+export const BookmarkMoviesCards = async () => {
+  const dataList: IData[] = await getData();
+  const dataListFilter = dataList.filter(
+    (data) => data.isBookmarked && data.category === "Movie",
+  );
+  return (
+    <CardsLayout>
+      {dataListFilter.map((data, i) => (
+        <li key={i}>
+          <MediumCard data={data} />
         </li>
       ))}
     </CardsLayout>

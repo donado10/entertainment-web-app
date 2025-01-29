@@ -1,7 +1,7 @@
-import { MoviesCards, SeriesCards } from "@/components/bookmarks/Card";
 import LoadCard from "@/components/loaders/Card";
 import TitleSection from "@/components/TitleSection";
 import React, { Suspense } from "react";
+import { BookmarkMoviesCards } from "../../actions";
 
 const BookmarkMovies = () => {
   return (
@@ -16,7 +16,7 @@ const BookmarkMovies = () => {
           </ul>
         }
       >
-        <MoviesCards />
+        <BookmarkMoviesCards />
       </Suspense>
     </section>
   );

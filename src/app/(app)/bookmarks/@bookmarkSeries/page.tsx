@@ -1,7 +1,7 @@
-import { SeriesCards } from "@/components/bookmarks/Card";
 import LoadCard from "@/components/loaders/Card";
 import TitleSection from "@/components/TitleSection";
 import React, { Suspense } from "react";
+import { BookmarkSeriesCards } from "../../actions";
 
 const BookmarkSeries = () => {
   return (
@@ -17,7 +17,7 @@ const BookmarkSeries = () => {
           </ul>
         }
       >
-        <SeriesCards />
+        <BookmarkSeriesCards />
       </Suspense>
     </section>
   );

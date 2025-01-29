@@ -27,8 +27,6 @@ const SignUpPage = () => {
       password: data.password,
       confirmPassword: data.confirmPassword,
     });
-
-    console.log(response);
   };
 
   const inputClass = ` bg-none p-4 py-3 focus:border-white`;
