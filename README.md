@@ -61,7 +61,7 @@ Your users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/donado10/entertainment-web-app)
-- Live Site URL: [Live site](https://devjobs-web-app-ado.vercel.app/)
+- Live Site URL: [Live site](entertainment-web-app-sigma-ten.vercel.app)
 
 ## My process
 
