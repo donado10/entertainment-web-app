@@ -1,4 +1,3 @@
-import usersModel from "@/models/usersModel";
 import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
 
 import mongoose from "mongoose";
@@ -8,11 +7,12 @@ declare global {
 
 const MONGODB_URI = process.env.MONGODB_URI!;
 
+/*
 if (!MONGODB_URI) {
   throw new Error(
     "Please define the MONGODB_URI environment variable inside .env.local",
   );
-}
+}*/
 
 let cached = global.mongoose;
 

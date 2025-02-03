@@ -21,7 +21,6 @@ export const UserSchema = new mongoose.Schema<User>({
     type: [String],
     required: false,
   },
-  //. . . other fields
 });
 
 export default mongoose.models.User || mongoose.model<User>("User", UserSchema);
