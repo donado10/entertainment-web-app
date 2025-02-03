@@ -1,37 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Mentor - Contact form solution
 
-## Getting Started
+This is a solution to the [Contact form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### The challenge
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Your users should be able to:
 
-## Learn More
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Navigate between Home, Movies, TV Series, and Bookmarked Shows pages
+- Add/Remove bookmarks from all movies and TV series
+- Search for relevant shows on all pages
+- **Bonus**: Build this project as a full-stack application
+- **Bonus**: If you're building a full-stack app, we provide authentication screen (sign-up/login) designs if you'd like to create an auth flow
 
-To learn more about Next.js, take a look at the following resources:
+### Expected Behaviour
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- General
+  - The navigation menu should be fixed to the left for larger screens. Use the "Desktop - Home" page in the design as a visual reference.
+- Home
+  - The trending section should scroll sideways to reveal other trending shows
+  - Any search input should search through all shows (i.e. all movies and TV series)
+- Movies
+  - This page should only display shows with the "Movie" category
+  - Any search input should search through all movies
+- TV Series
+  - This page should only display shows with the "TV Series" category
+  - Any search input should search through all TV series
+- Bookmarked Shows
+  - This page should display all bookmarked shows from both categories
+  - Any search input should search through all bookmarked shows
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Screenshot
 
-## Deploy on Vercel
+![](captures/login.png)
+![](captures/create_account.png)
+![](captures/home.png)
+![](captures/movies.png)
+![](captures/series.png)
+![](captures/bookmark.png)
+![](captures/search.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Links
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-"# entertainment-web-app" 
+- Solution URL: [Github](https://github.com/donado10/entertainment-web-app)
+- Live Site URL: [Live site](https://devjobs-web-app-ado.vercel.app/)
+
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- Mobile-first workflow
+- [NextJS](https://nextjs.org/) - JS library
+- [Typescript](https://www.typescriptlang.org/) - JS with syntax for types.
+- [Tailwind](https://tailwindcss.com/) - A utility-first CSS framework
+
+**Note: These are just examples. Delete this note and replace the list above with your own choices**
+
+### What I learned
+
+How to really use Next JS as a fullstack project
+
+### Continued development
+
+Learn page transition for future project
+
+### Useful resources
+
+## Author
+
+- Frontend Mentor - [@donado10](https://www.frontendmentor.io/profile/donado10)
+- Twitter - [@hey\_\_ado](https://x.com/Hey__Ado)
