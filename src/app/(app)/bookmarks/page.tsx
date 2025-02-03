@@ -1,4 +1,3 @@
-import TitleSection from "@/components/TitleSection";
 import React, { Suspense } from "react";
 import MaxWithWrapper from "@/components/MaxWithWrapper";
 import FilterSection from "@/components/Filter";
