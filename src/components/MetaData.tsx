@@ -13,7 +13,7 @@ export const MetaData = ({
   title: string;
 }) => {
   return (
-    <div className="flex flex-col gap-2 text-white">
+    <div className="flex flex-col gap-1 text-white">
       <p className="text-md flex flex-row items-center gap-2 font-normal text-gray-400">
         <span>{year}</span>
         <span className="block aspect-square w-1 rounded-full bg-gray-400" />

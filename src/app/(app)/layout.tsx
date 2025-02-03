@@ -10,7 +10,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen w-screen overflow-y-scroll bg-entertain-third tracking-wide xl:flex xl:flex-row">
+      <body className="h-screen w-screen overflow-y-scroll bg-entertain-third tracking-normal xl:flex xl:flex-row">
         <div className="sticky md:p-4 xl:w-[10%]">
           <Header />
         </div>
