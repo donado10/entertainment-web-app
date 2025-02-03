@@ -2,6 +2,8 @@
 
 This is a solution to the [Contact form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/contact-form--G-hYlqKJj). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+**Login and password in useful ressources section**
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -82,6 +84,11 @@ How to really use Next JS as a fullstack project
 Learn page transition for future project
 
 ### Useful resources
+
+-login:
+
+- check1@front.com (mdp:check1)
+- check2@front.com (mdp:check2)
 
 ## Author
 
